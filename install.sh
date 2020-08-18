@@ -5,7 +5,7 @@ echo "Setting up your environment..."
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # zsh
-ln -s ${BASEDIR}/.zshrc ~/.zshrc
+ln -fs ${BASEDIR}/.zshrc ~/.zshrc
 
 # install scm breeze shortcuts
 if [[ ! -f "$HOME/.scm_breeze/scm_breeze.sh" ]]; then
