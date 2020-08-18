@@ -17,5 +17,6 @@ ln -s -f /usr/local/bin/pip3 /usr/local/bin/pip
 brew install httpie
 
 # misc
+brew install bat
 brew install terminal-notifier
 

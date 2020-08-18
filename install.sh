@@ -6,6 +6,7 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # zsh
 ln -fs ${BASEDIR}/.zshrc ~/.zshrc
+ln -fs ${BASEDIR}/.vimrc ~/.vimrc
 
 # install scm breeze shortcuts
 if [[ ! -f "$HOME/.scm_breeze/scm_breeze.sh" ]]; then
