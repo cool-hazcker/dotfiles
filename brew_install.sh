@@ -4,6 +4,7 @@ brew update
 
 brew upgrade
 
+# system utils
 brew install htop
 brew install tree
 brew install pstree
@@ -15,6 +16,9 @@ ln -s -f /usr/local/bin/pip3 /usr/local/bin/pip
 
 # networking
 brew install httpie
+
+# editors
+brew install vim
 
 # misc
 brew install bat
