@@ -6,7 +6,14 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # zsh
 ln -fs ${BASEDIR}/.zshrc ~/.zshrc
+
+# vim
 ln -fs ${BASEDIR}/.vimrc ~/.vimrc
+# Install vim-plug for vim.
+if [ ! -e ~/.vim/autoload/plug.vim ]; then
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
 
 # install scm breeze shortcuts
 if [[ ! -f "$HOME/.scm_breeze/scm_breeze.sh" ]]; then
