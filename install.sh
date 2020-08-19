@@ -32,9 +32,12 @@ else
     source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k/powerlevel10k.zsh-theme	
 fi;
 
-
 # install brew packages, replace with Brewfile later
-. ${BASEDIR}/brew_install.sh
+echo "Installing brew packages"
+source ${BASEDIR}/brew_install.sh
+echo "Finished installing brew packages"
+
+terminal-notifier -title 'Lets go bruh🚀' -message 'Your environment is ready!' -sound Ping;
 
 # let's run this bitch
 source ~/.zshrc
