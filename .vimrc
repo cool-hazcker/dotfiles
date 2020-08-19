@@ -5,6 +5,9 @@ set nocompatible
 syntax on " turn on syntax highlighting
 set showmatch " show matching braces when text indicator is over them
 set tabstop=4 softtabstop=4
+set shiftwidth=4
+" use 4 spaces instead of tabs during formatting
+set expandtab
 set smartindent
 set nowrap
 set colorcolumn=100
