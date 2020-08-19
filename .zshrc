@@ -94,7 +94,7 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-
+export EDITOR='vim'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -103,11 +103,24 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Aliases
+alias ll="ls -alh"
+alias venv="python -m venv"
 
-# keybindings
+alias bi="brew install"
+alias bif="brew info"
+alias bu="brew update"
+
+# misc aliases
+alias dl="cd ~/Downloads"
+alias ~="cd ~"
+
+# Functions
+function mcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
+# Keybindings
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
 
