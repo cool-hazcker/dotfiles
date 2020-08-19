@@ -105,6 +105,7 @@ export EDITOR='vim'
 #
 # Aliases
 alias ll="ls -alh"
+alias mkdir="mkdir -p"
 alias venv="python -m venv"
 
 alias bi="brew install"
@@ -116,7 +117,7 @@ alias dl="cd ~/Downloads"
 alias ~="cd ~"
 
 # Functions
-function mcd() {
+function mkd() {
     mkdir -p "$1" && cd "$1"
 }
 
