@@ -108,7 +108,7 @@ typeset -U path
 # For a full list of active aliases, run `alias`.
 #
 # Aliases
-alias ll="ls -alh"
+alias lh="ls -alh"
 alias mkdir="mkdir -p"
 alias venv="python -m venv"
 
