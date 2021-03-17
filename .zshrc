@@ -125,6 +125,16 @@ function mkd() {
     mkdir -p "$1" && cd "$1"
 }
 
+function acvenv() {
+    local env=$1
+    if [[ ! -d "$env" ]]; then
+      echo "No venv '$env' foud"
+      return 1
+    fi  
+    echo "Activating environment $env"
+    source "$env/bin/activate"
+}
+
 # Keybindings
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
