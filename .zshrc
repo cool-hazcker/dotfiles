@@ -72,7 +72,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -134,6 +134,9 @@ function acvenv() {
     echo "Activating environment $env"
     source "$env/bin/activate"
 }
+
+# export -> install vscode extensions
+#code --list-extensions | xargs -L 1 code-insiders --install-extension
 
 # Keybindings
 bindkey "\e\e[D" backward-word
