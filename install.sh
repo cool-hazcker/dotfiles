@@ -1,10 +1,27 @@
 #!/bin/bash
 
+# good reference https://github.com/maxjkfc/mac-setting/blob/505ea65efd8ffd27c031a459c221d91429827781/install.sh
+
 echo "Setting up your environment..."
 
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# install brew and brew packages from Brewfile
+if [[ ! $(which brew) ]]; then
+    echo "Installing brew"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+echo "Brew is installed"
+ln -fs ${BASEDIR}/Brewfile ~/Brewfile
+echo "Installing brew packages"
+source brew_install.sh
+echo "Finished installing brew packages"
+
 # zsh
+if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+  /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
+fi
+echo "Oh my zsh is installed"
 ln -fs ${BASEDIR}/.zshrc ~/.zshrc
 
 # vim
@@ -21,6 +38,9 @@ if [[ ! -f "$HOME/.scm_breeze/scm_breeze.sh" ]]; then
 	~/.scm_breeze/install.sh
 fi;
 
+# replace shell with zsh
+exec /bin/zsh
+
 # Install p10k
 # https://github.com/romkatv/powerlevel10k
 # https://qiita.com/szk07/items/b15c38ec73e547a23439
@@ -32,10 +52,6 @@ else
     source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k/powerlevel10k.zsh-theme	
 fi;
 
-# install brew packages, replace with Brewfile later
-echo "Installing brew packages"
-source ${BASEDIR}/brew_install.sh
-echo "Finished installing brew packages"
 
 terminal-notifier -title 'Lets go bruh🚀' -message 'Your environment is ready!' -sound Ping;
 
