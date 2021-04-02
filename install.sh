@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # good reference https://github.com/maxjkfc/mac-setting/blob/505ea65efd8ffd27c031a459c221d91429827781/install.sh
 
@@ -14,7 +14,11 @@ fi
 echo "Brew is installed"
 ln -fs ${BASEDIR}/Brewfile ~/Brewfile
 echo "Installing brew packages"
-source brew_install.sh
+
+brew update
+brew upgrade
+brew bundle install
+
 echo "Finished installing brew packages"
 
 # zsh
@@ -52,6 +56,12 @@ else
     source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k/powerlevel10k.zsh-theme	
 fi;
 
+# python, setting symlinks
+ln -s -f /usr/local/bin/python3 /usr/local/bin/python
+ln -s -f /usr/local/bin/pip3 /usr/local/bin/pip
+# installing necessary python packages
+pip install --upgrade pip
+pip install bpython jupyter
 
 terminal-notifier -title 'Lets go bruh🚀' -message 'Your environment is ready!' -sound Ping;
 
