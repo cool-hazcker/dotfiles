@@ -72,7 +72,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose)
+plugins=(git docker docker-compose zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -89,9 +89,13 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-# Env variables
-export EDITOR='vim'
 
+# ENV variables
+export EDITOR='vim'
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export BAT_THEME="Dracula"
+
+# Go
 export GOPATH="${HOME}/go"
 mkdir -p ${GOPATH} $GOPATH/src $GOPATH/pkg $GOPATH/bin
 
@@ -106,9 +110,8 @@ typeset -U path
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Ruby exports
 
+# Ruby exports
 export GEM_HOME=$HOME/gems
 export PATH=$HOME/gems/bin:$PATH
 
@@ -144,8 +147,9 @@ function acvenv() {
 #code --list-extensions | xargs -L 1 code-insiders --install-extension
 
 # Keybindings
-bindkey "\e\e[D" backward-word
-bindkey "\e\e[C" forward-word
+bindkey "\e\e[D" backward-word # jump backward one word
+bindkey "\e\e[C" forward-word # jump forward one word
+bindkey "ç" fzf-cd-widget # for fzf dir search
 
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
@@ -153,3 +157,8 @@ bindkey "\e\e[C" forward-word
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(zoxide init zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
