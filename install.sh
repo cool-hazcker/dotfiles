@@ -63,6 +63,9 @@ ln -s -f /usr/local/bin/pip3 /usr/local/bin/pip
 pip install --upgrade pip
 pip install bpython jupyter
 
+# isntalling kitty
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+
 terminal-notifier -title 'Lets go bruh🚀' -message 'Your environment is ready!' -sound Ping;
 
 # let's run this bitch
