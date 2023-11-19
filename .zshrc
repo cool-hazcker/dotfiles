@@ -93,15 +93,12 @@ source $ZSH/oh-my-zsh.sh
 # ENV variables
 export EDITOR='vim'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export BAT_THEME="Dracula"
+export BAT_THEME="Nord"
 
 # Go
 export GOPATH="${HOME}/go"
 mkdir -p ${GOPATH} $GOPATH/src $GOPATH/pkg $GOPATH/bin
 
-# PATH var
-export PATH=${GOPATH}/bin:${HOME}/bin:/usr/local/bin:${PATH}
-typeset -U path
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -113,7 +110,16 @@ typeset -U path
 
 # Ruby exports
 export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
+
+# PATH var
+path=("/usr/local/bin" $path)
+path=("${HOME}/bin" $path)
+path=("$HOME/.local/bin" $path)
+path=("$HOME/gems/bin" $path)
+path=("${GOPATH}/bin" $path)
+
+export PATH
+typeset -U path
 
 # Aliases
 alias lh="ls -alh"
@@ -127,6 +133,47 @@ alias bu="brew update"
 # misc aliases
 alias dl="cd ~/Downloads"
 alias ~="cd ~"
+
+alias jqless="jq -C . | less -R"
+
+# git aliases
+alias gbrecent="git branch --sort=-committerdate --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:magenta)%(objectname:short)|%(color:blue)%(subject)%(color:reset)' --color=always | column -ts'|'"
+
+# fuzzy searching on git branches
+# https://polothy.github.io/post/2019-08-19-fzf-git-checkout/
+fzf-git-checkout() {
+    git rev-parse HEAD > /dev/null 2>&1 || return
+
+    local branch
+
+    branch=$(fzf-git-branch)
+    if [[ "$branch" = "" ]]; then
+        echo “No branch selected.”
+        return
+    fi
+
+    # If branch name starts with ‘remotes/’ then it is a remote branch. By
+    # using --track and a remote branch name, it is the same as:
+    # git checkout -b branchName --track origin/branchName
+    if [[ "$branch" = 'remotes/'* ]]; then
+        git checkout --track $branch
+    else
+        git checkout $branch;
+    fi
+}
+
+fzf-git-branch() {
+    git rev-parse HEAD > /dev/null 2>&1 || return
+
+    git branch --color=always --all --sort=committerdate |
+        grep -v HEAD |
+        fzf --height 50% --ansi --no-multi --preview-window right:65% \
+            --preview 'git log -n 50 --color=always --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed "s/.* //" <<< {})' |
+        sed “s/.* //”
+}
+
+alias gbf="fzf-git-branch"
+alias gcof="fzf-git-checkout"
 
 # Functions
 function mkd() {

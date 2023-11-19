@@ -33,11 +33,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 call plug#end()
 
 colorscheme nord
-"colorscheme material
-"let g:material_theme_style = 'lighter'
 set termguicolors
 
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
@@ -48,7 +47,43 @@ let g:webdevicons_conceal_nerdtree_brackets = 1
 
 nnoremap <C-p> :GFiles<Cr>
 nnoremap <C-g> :Rg<Cr>
+nnoremap <C-i> :Buffers<CR>
+nnoremap <CR> :noh<CR>
 nnoremap <C-b> :NERDTreeToggle<Cr>
+nnoremap <C-D> Yp
+vnoremap <C-d> :copy ’><CR>
+
+nnoremap <S-Up> :m-2<CR>
+nnoremap <S-Down> :m+<CR>
+inoremap <S-Up> <Esc>:m-2<CR>
+inoremap <S-Down> <Esc>:m+<CR>
 
 inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
 inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
+"Make <CR> to accept selected completion item or notify coc.nvim to format
+"<C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+"Highlight the symbol and its references when holding the cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+vmap <Tab> >gv
+vmap <S-Tab> <gv
