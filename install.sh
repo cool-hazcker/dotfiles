@@ -49,20 +49,6 @@ if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
 fi;
 ln -fs ${BASEDIR}/tmux/.tmux.conf ~/.tmux.conf
 
-# replace shell with zsh
-exec /bin/zsh
-
-# Install p10k
-# https://github.com/romkatv/powerlevel10k
-# https://qiita.com/szk07/items/b15c38ec73e547a23439
-if [[ -f ~/.p10k.zsh ]]; then
-    # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-    source ~/.p10k.zsh
-else
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-    source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k/powerlevel10k.zsh-theme	
-fi;
-
 # python, setting symlinks
 ln -s -f /usr/local/bin/python3 /usr/local/bin/python
 ln -s -f /usr/local/bin/pip3 /usr/local/bin/pip
@@ -72,8 +58,6 @@ pip install bpython jupyter
 
 # isntalling kitty
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-
-terminal-notifier -title 'Lets go bruh🚀' -message 'Your environment is ready!' -sound Ping;
 
 # let's run this bitch
 source ~/.zshrc
