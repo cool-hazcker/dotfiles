@@ -42,6 +42,13 @@ if [[ ! -f "$HOME/.scm_breeze/scm_breeze.sh" ]]; then
 	~/.scm_breeze/install.sh
 fi;
 
+# Setting up tmux
+echo "Setting up tmux"
+if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi;
+ln -fs ${BASEDIR}/tmux/.tmux.conf ~/.tmux.conf
+
 # replace shell with zsh
 exec /bin/zsh
 
