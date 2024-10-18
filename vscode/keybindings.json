@@ -1,0 +1,126 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "ctrl+shift+v",
+    "command": "markdown.showPreview",
+    "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+shift+v",
+    "command": "-markdown.showPreview",
+    "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+  },
+  {
+    "key": "cmd+k",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.focusPreviousGroup",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.focusNextGroup",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+left",
+    "command": "workbench.action.positionPanelLeft"
+  },
+  {
+    "key": "ctrl+shift+right",
+    "command": "workbench.action.positionPanelRight"
+  },
+  {
+    "key": "ctrl+shift+down",
+    "command": "workbench.action.positionPanelBottom"
+  },
+  {
+    "key": "cmd+m", // or whatever binding you choose
+    "command": "cursorMove",
+    "args": {
+      "to": "viewPortCenter"
+    }
+  },
+  {
+    "key": "cmd+]",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+[",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+l",
+    "command": "workbench.action.gotoLine"
+  },
+  {
+    "key": "ctrl+g",
+    "command": "-workbench.action.gotoLine"
+  },
+  {
+    "key": "cmd+g",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+  {
+    "key": "cmd+d",
+    "command": "-editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+  {
+    "key": "cmd+d",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+down",
+    "command": "-editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+r",
+    "command": "editor.action.startFindReplaceAction",
+    "when": "editorFocus || editorIsOpen"
+  },
+  {
+    "key": "alt+cmd+f",
+    "command": "-editor.action.startFindReplaceAction",
+    "when": "editorFocus || editorIsOpen"
+  },
+  {
+    "key": "ctrl+up",
+    "command": "cursorMove",
+    "args": {
+      "to": "up",
+        "by": "line",
+        "value": 10
+    },
+    "when": "editorTextFocus"
+},
+{
+    "key": "ctrl+down",
+    "command": "cursorMove",
+    "args": {
+        "to": "down",
+        "by": "line",
+        "value": 10
+    },
+    "when": "editorTextFocus"
+},
+{
+  "key": "shift+cmd+r",
+  "command": "workbench.action.replaceInFiles"
+},
+{
+  "key": "shift+cmd+h",
+  "command": "-workbench.action.replaceInFiles"
+},
+{
+  "key": "cmd+.",
+  "command": "editor.action.revealDefinitionAside"
+}
+]

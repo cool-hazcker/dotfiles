@@ -1,0 +1,67 @@
+{
+  "update.mode": "manual",
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "telemetry.telemetryLevel": "off",
+  "files.watcherExclude": {
+    "**/build/**": true,
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/.hg/store/**": true
+  },
+  "files.exclude": {
+    "apollo-overrides": true,
+    "release-info": true,
+    "src/*/build": false,
+    "build": false,
+    "env": true,
+    "packageInfo*": true,
+    ".bemol": true,
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "node_modules": true
+  },
+  "search.exclude": {
+    "env": true,
+    "src/*/build": true,
+    "build": true,
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true
+  },
+  "[brazilPackageConfig]": {
+    "workbench.editor.languageDetection": false
+  },
+  "files.autoSave": "afterDelay",
+  "workbench.editor.showTabs": "single",
+  "editor.formatOnSave": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.iconTheme": "eq-material-theme-icons",
+  "workbench.colorTheme": "Nord",
+  "gitlens.defaultDateLocale": null,
+  "gitlens.defaultDateFormat": null,
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "smithyLsp.trace.server": "off",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "prettier.trailingComma": "all"
+}
