@@ -45,6 +45,17 @@ let g:DevIconsEnableFolderPatternMatching = 1
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
 let g:webdevicons_conceal_nerdtree_brackets = 1
 
+let mapleader = ","
+
+nnoremap sh :sp<CR>   " Horizontal split
+nnoremap sv :vsp<CR>  " Vertical split
+nnoremap <leader>c :close<CR>
+
+nnoremap <C-Up> :resize +2<CR>
+nnoremap <C-Down> :resize -2<CR>
+nnoremap <C-Left>  :vertical resize -2<CR>
+nnoremap <C-Right> :vertical resize +2<CR>
+
 nnoremap <C-p> :GFiles<Cr>
 nnoremap <C-g> :Rg<Cr>
 nnoremap <C-i> :Buffers<CR>
