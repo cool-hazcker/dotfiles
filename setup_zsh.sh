@@ -14,6 +14,8 @@ else
     source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k/powerlevel10k.zsh-theme	
 fi;
 
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+
 terminal-notifier -title 'Lets go bruh🚀' -message 'Your environment is ready!' -sound Ping;
 
 # let's run this bitch
