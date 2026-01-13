@@ -20,20 +20,29 @@ set incsearch
 set smartcase
 set backspace=indent,eol,start
 set mouse=a
+set hlsearch
 
 call plug#begin('~/.vim/plugged')
 "Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
-Plug 'vim-airline/vim-airline'  " Airline status bar
+Plug 'vim-airline/vim-airline'		" Airline status bar
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ryanoasis/vim-devicons'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'mbbill/undotree'
+" If you don't have nodejs and yarn
+" use pre build, add 'vim-plug' to the filetype list so vim-plug can update this plugin
+" see: https://github.com/iamcco/markdown-preview.nvim/issues/50
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+
+" If you have nodejs
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 call plug#end()
 
 colorscheme nord
