@@ -36,28 +36,12 @@ if [ ! -e ~/.vim/autoload/plug.vim ]; then
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-# install scm breeze shortcuts
-if [[ ! -f "$HOME/.scm_breeze/scm_breeze.sh" ]]; then
-	git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
-	~/.scm_breeze/install.sh
-fi;
-
 # Setting up tmux
 echo "Setting up tmux"
 if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi;
 ln -fs ${BASEDIR}/tmux/.tmux.conf ~/.tmux.conf
-
-# python, setting symlinks
-ln -s -f /usr/local/bin/python3 /usr/local/bin/python
-ln -s -f /usr/local/bin/pip3 /usr/local/bin/pip
-# installing necessary python packages
-pip install --upgrade pip
-pip install bpython jupyter
-
-# isntalling kitty
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 # let's run this bitch
 source ~/.zshrc
