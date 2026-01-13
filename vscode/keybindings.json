@@ -12,7 +12,23 @@
   },
   {
     "key": "cmd+k",
-    "command": "workbench.action.toggleMaximizedPanel"
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+m",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+m",
+    "command": "workbench.action.closePanel",
+    "when": "editorFocus && panelIsOpen"
+  },
+  {
+    "key": "alt+m",
+    "command": "workbench.action.togglePanel",
+    "when": "editorFocus && !panelIsOpen"
   },
   {
     "key": "ctrl+h",
@@ -25,15 +41,16 @@
     "when": "!terminalFocus"
   },
   {
-    "key": "ctrl+shift+left",
-    "command": "workbench.action.positionPanelLeft"
+    "key": "cmd+alt+left",
+    "command": "workbench.action.positionPanelLeft",
+    "when": "!terminalFocus"
   },
   {
-    "key": "ctrl+shift+right",
+    "key": "cmd+alt+right",
     "command": "workbench.action.positionPanelRight"
   },
   {
-    "key": "ctrl+shift+down",
+    "key": "cmd+alt+down",
     "command": "workbench.action.positionPanelBottom"
   },
   {
@@ -47,6 +64,16 @@
     "key": "cmd+]",
     "command": "workbench.action.terminal.focusNextPane",
     "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+]",
+    "command": "workbench.action.focusNextGroup",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+[",
+    "command": "workbench.action.focusPreviousGroup",
+    "when": "editorTextFocus"
   },
   {
     "key": "cmd+[",
@@ -122,5 +149,136 @@
 {
   "key": "cmd+.",
   "command": "editor.action.revealDefinitionAside"
+},
+{
+  "key": "cmd+,",
+  "command": "editor.action.revealDefinition"
+},
+{
+  "key": "cmd+.",
+  "command": "markdown.showPreviewToSide",
+  "when": "editorLangId == markdown"
+},
+{
+    "key": "cmd+shift+.",
+    "command": "editor.action.showHover",
+    "when": "editorTextFocus"
+},
+{
+  "key": "shift+cmd+b",
+  "command": "gitlens.toggleFileBlame",
+  "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && resource in 'gitlens:tabs:blameable'"
+},
+{
+  "key": "alt+cmd+g b",
+  "command": "-gitlens.toggleFileBlame",
+  "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && resource in 'gitlens:tabs:blameable'"
+},
+{
+  "key": "cmd+-",
+  "command": "workbench.action.splitEditorDown"
+},
+{
+  "key": "shift+cmd+u",
+  "command": "extension.changeCase.upper"
+},
+{
+  "key": "shift+cmd+l",
+  "command": "extension.changeCase.lower"
+},
+{
+  "key": "shift+cmd+c",
+  "command": "extension.changeCase.camel"
+},
+{
+  "key": "shift+cmd+s n",
+  "command": "extension.changeCase.snake"
+},
+{
+  "key": "shift+cmd+s a",
+  "command": "editor.action.sortLinesAscending"
+},
+{
+  "key": "shift+cmd+s d",
+  "command": "editor.action.sortLinesDescending"
+},
+{
+  "key": "alt+cmd+right",
+  "command": "cursorWordPartRight",
+  "when": "textInputFocus"
+},
+{
+  "key": "ctrl+alt+right",
+  "command": "-cursorWordPartRight",
+  "when": "textInputFocus"
+},
+{
+  "key": "alt+cmd+left",
+  "command": "cursorWordPartLeft",
+  "when": "textInputFocus"
+},
+{
+  "key": "ctrl+alt+left",
+  "command": "-cursorWordPartLeft",
+  "when": "textInputFocus"
+},
+{
+  "key": "shift+alt+cmd+left",
+  "command": "cursorWordPartLeftSelect",
+  "when": "textInputFocus"
+},
+{
+  "key": "ctrl+shift+alt+left",
+  "command": "-cursorWordPartLeftSelect",
+  "when": "textInputFocus"
+},
+{
+  "key": "shift+alt+cmd+right",
+  "command": "cursorWordPartRightSelect",
+  "when": "textInputFocus"
+},
+{
+  "key": "ctrl+shift+alt+right",
+  "command": "-cursorWordPartRightSelect",
+  "when": "textInputFocus"
+},
+{
+  "key": "alt+k",
+  "command": "workbench.action.toggleMaximizeEditorGroup",
+  "when": "editorPartMaximizedEditorGroup || editorPartMultipleEditorGroups"
+},
+{
+  "key": "cmd+shift+[",
+  "command": "workbench.action.focusActiveEditorGroup",
+  "when": "terminalFocus"
+},
+{
+  "key": "cmd+shift+]",
+  "command": "workbench.action.terminal.focusNext",
+  "when": "!terminalFocus"
+},
+{
+  "key": "cmd+w",
+  "command": "workbench.action.closeEditorsAndGroup"
+},
+{
+  "key": "cmd+j",
+  "command": "workbench.action.terminal.toggleTerminal",
+  "when": "terminal.active"
+},
+{
+  "key": "ctrl+`",
+  "command": "-workbench.action.terminal.toggleTerminal",
+  "when": "terminal.active"
+},
+{
+  "key": "cmd+j",
+  "command": "gitlens.key.ctrl+enter",
+  "when": "gitlens:key:ctrl+enter"
+},
+{
+  "key": "ctrl+enter",
+  "command": "-gitlens.key.ctrl+enter",
+  "when": "gitlens:key:ctrl+enter"
 }
 ]
