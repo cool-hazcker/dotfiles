@@ -3,12 +3,13 @@
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "telemetry.telemetryLevel": "off",
+  "viceroy.config.lastVersion": "0.53.202578",
   "files.watcherExclude": {
     "**/build/**": true,
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
-    "**/node_modules/*/**": true,
-    "**/.hg/store/**": true
+    "**/.hg/store/**": true,
+    "**/node_modules/*/**": true
   },
   "files.exclude": {
     "apollo-overrides": true,
@@ -21,9 +22,9 @@
     "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
-    "**/CVS": true,
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
+    "**/CVS": true,
     "node_modules": true
   },
   "search.exclude": {
@@ -34,12 +35,9 @@
     "**/bower_components": true,
     "**/*.code-search": true
   },
-  "[brazilPackageConfig]": {
-    "workbench.editor.languageDetection": false
-  },
   "files.autoSave": "afterDelay",
   "workbench.editor.showTabs": "single",
-  "editor.formatOnSave": true,
+  "viceroy.config.internal.lastUpdateTime": "2025-12-31T09:51:16.544Z",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -52,16 +50,48 @@
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "workbench.iconTheme": "eq-material-theme-icons",
   "workbench.colorTheme": "Nord",
   "gitlens.defaultDateLocale": null,
   "gitlens.defaultDateFormat": null,
-  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
   "editor.fontLigatures": true,
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "smithyLsp.trace.server": "off",
   "editor.gotoLocation.multipleDefinitions": "goto",
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "workbench.commandPalette.experimental.enableNaturalLanguageSearch": false,
+  "typescript.preferences.quoteStyle": "single",
+  "editor.formatOnSave": true,
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
+  "terminal.integrated.defaultProfile.linux": "tmux",
+  "terminal.integrated.profiles.linux": {
+    "bash": null,
+    "tmux": {
+      "path": "bash",
+      "args": ["-c", "tmux new-session -ADs vscode:${workspaceFolder}"],
+      "icon": "terminal-tmux"
+    }
+  },
+  "terminal.integrated.profiles.osx": {
+    "tmux": {
+      "path": "/opt/homebrew/bin/tmux",
+      "icon": "terminal-tmux",
+      "args": [
+        "new-session",
+        "-A",
+        "-s",
+        "vscode-${workspaceFolderBasename}",
+        "-f",
+        "~/.tmux.conf"
+      ]
+    }
+  },
+  "terminal.integrated.defaultProfile.osx": "tmux",
+  "terminal.integrated.copyOnSelection": true,
+  "cSpell.enabled": false,
+  "terminal.integrated.gpuAcceleration": "on",
+  "chat.disableAIFeatures": true,
   "prettier.trailingComma": "all"
 }
