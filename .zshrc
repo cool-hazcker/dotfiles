@@ -1,3 +1,14 @@
+# PATH var
+path=("/usr/local/bin" $path)
+path=("${HOME}/bin" $path)
+path=("$HOME/.local/bin" $path)
+path=("$HOME/gems/bin" $path)
+path=("${GOPATH}/bin" $path)
+path=("$HOME/.toolbox/bin" "/opt/homebrew/bin" $path)
+
+export PATH
+typeset -U path
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -16,11 +27,9 @@ export ZSH="$HOME/.oh-my-zsh"
 export LS_COLORS="$(vivid generate nord)"
 
 plugins=(git docker docker-compose zsh-syntax-highlighting fzf-tab)
-
-source $ZSH/oh-my-zsh.sh
-
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+source $ZSH/oh-my-zsh.sh
 
 # Fzf tab styling
 # disable sort when completing `git checkout`
@@ -36,12 +45,13 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 # custom fzf flags
 # NOTE: fzf-tab does not follow FZF_DEFAULT_OPTS by default
-zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
+zstyle ':fzf-tab:*' popup-pad 300 0 fzf-flags  --color=fg:1,fg+:2
 # To make fzf-tab follow FZF_DEFAULT_OPTS.
 # NOTE: This may lead to unexpected behavior since some flags break this plugin. See Aloxaf/fzf-tab#455.
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
 
 # User configuration
@@ -55,17 +65,6 @@ mkdir -p ${GOPATH} $GOPATH/src $GOPATH/pkg $GOPATH/bin
 
 # Ruby exports
 export GEM_HOME=$HOME/gems
-
-# PATH var
-path=("/usr/local/bin" $path)
-path=("${HOME}/bin" $path)
-path=("$HOME/.local/bin" $path)
-path=("$HOME/gems/bin" $path)
-path=("${GOPATH}/bin" $path)
-path=("$HOME/.toolbox/bin" "/opt/homebrew/bin" $path)
-
-export PATH
-typeset -U path
 
 # Aliases
 alias lh="ls -alh"
@@ -180,11 +179,6 @@ alias gcof='fzf-git-checkout'
 bindkey "\e\e[D" backward-word # jump backward one word
 bindkey "\e\e[C" forward-word # jump forward one word
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k/powerlevel10k.zsh-theme
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(zoxide init zsh)"
@@ -204,3 +198,7 @@ alias gash="git stash"
 eval "$(mise activate zsh)"
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
