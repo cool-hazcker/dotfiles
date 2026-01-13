@@ -36,6 +36,9 @@ if [ ! -e ~/.vim/autoload/plug.vim ]; then
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+# git
+ln -fs ${BASEDIR}/.gitconfig ~/.gitconfig
+
 # Setting up tmux
 echo "Setting up tmux"
 if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
