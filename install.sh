@@ -49,5 +49,4 @@ ln -fs ${BASEDIR}/tmux/.tmux.conf ~/.tmux.conf
 # VS Code setup
 bash ${BASEDIR}/setup_vscode.sh
 
-# let's run this bitch
-source ~/.zshrc
+echo "Installation complete! Please run: zsh setup_zsh.sh"
