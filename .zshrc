@@ -179,7 +179,7 @@ alias gcof='fzf-git-checkout'
 bindkey "\e\e[D" backward-word # jump backward one word
 bindkey "\e\e[C" forward-word # jump forward one word
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 eval "$(zoxide init zsh)"
 
@@ -196,8 +196,6 @@ alias gash="git stash"
 
 # activating mise
 eval "$(mise activate zsh)"
-
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
