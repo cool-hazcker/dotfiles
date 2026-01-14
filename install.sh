@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e  # Exit immediately if any command fails
+
 # good reference https://github.com/maxjkfc/mac-setting/blob/505ea65efd8ffd27c031a459c221d91429827781/install.sh
 
 echo "Setting up your environment..."
