@@ -21,6 +21,12 @@ brew update
 brew upgrade
 brew bundle install
 
+# Install macOS-specific casks
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "==> Installing macOS applications..."
+    brew bundle install --file=${BASEDIR}/Brewfile.macos
+fi
+
 echo "==> Finished installing Homebrew packages"
 
 # zsh

@@ -1,0 +1,7 @@
+cask "alacritty"
+cask "flycut"
+cask "git-credential-manager"
+cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"
+cask "ngrok"
+cask "rar"
