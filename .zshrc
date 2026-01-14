@@ -200,3 +200,6 @@ eval "$(mise activate zsh)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Source local config if it exists
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
