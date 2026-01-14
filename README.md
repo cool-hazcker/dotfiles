@@ -3,3 +3,4 @@
 * Git clone this repo
 * Run ```bash install.sh``` Better hope that it won't wreck your shit :thumbsup:
 * Run ```zsh setup_zsh.sh``` This script requires zsh as executing shell
+* Restart your terminal or run ```source ~/.zshrc```
